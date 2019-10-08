@@ -15,37 +15,58 @@ export class RecipesComponent implements OnInit {
 
   constructor() { }
 
-  ingredients: string; 
-  procedure: string; 
-  onename: string; 
+  //ingredients: string; 
+  //procedure: string; 
+  //onename: string; 
   
-  recipes: Recipe[];
+  all_recipes: Recipe[] = [];
+  curr_recipes: Recipe[] = [];
 
   ngOnInit() {
 
-    // try pulling in the json and reading it 
-
-    // how to iterate over the items in data...
-    // 1. iterate over them and then I can parse into a list of objects or something 
-
-    console.log("Printing Data");
-    console.log(data);
     let names: string[] = Object.keys(data.cocktails);
+
     for (let n of names){
-      //this.onename = name;
-      //this.procedure = data.cocktails[name].Procedure; 
-      //this.ingredients = data.cocktails[name].Ingredients;
 
-      //recipe: Recipe("test1", "test2"); 
-      //recipe.name = n; 
-      //recipe.ingredients = data.cocktails[n].Ingredients;
-      //recipe.procedure = data.cocktails[n].Procedure;
+      var recipe = new Recipe();
+      recipe.name = n; 
+      recipe.ingredients = data.cocktails[n].Ingredients;
+      recipe.procedure = data.cocktails[n].Procedure;
 
-      //this.recipes.push(recipe);
+      this.all_recipes.push(recipe);
+      this.curr_recipes.push(recipe);
+    }
+    
+    console.log("Before data");
+    console.log(recipe.name);
+    console.log(recipe.ingredients);
+    console.log("After data");
+    
+  }
 
-    }    
+  updateRecipes(searchTerms: string[]) {
 
+    // This will be called whenever we hit enter in the search box
+    // It will prompt for us to search through all the recipes and update the current recipes
 
+    // assume that we got a list of search terms (ingredients only)
+    // filter through all_recipes data set 
+
+    // test filtering current by a random string 
+
+    this.curr_recipes = this.all_recipes.filter(function(recipe){
+
+      for (let term of searchTerms){
+
+        // assume "and" search. if ingredient doesn't match, throw it out
+        if (!recipe.ingredients.toLowerCase().includes(term.toLowerCase())){
+          return false;
+        }
+      }
+      return true;
+    }
+    
+    );
 
   }
 

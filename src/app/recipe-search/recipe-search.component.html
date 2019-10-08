@@ -1,0 +1,6 @@
+<div id="search-component">
+    <h4><label for="search-box">Enter Ingredients:</label></h4>
+   
+    <input #searchBox id="search-box" (keyup.enter)="filter_recipes(searchBox.value)" />
+   
+  </div>
