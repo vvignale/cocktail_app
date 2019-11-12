@@ -1,0 +1,20 @@
+<div id="search-component">
+  <body>
+    <p>
+    <button [style.background-color]="toggles['Sweet'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Sweet')">Sweet</button>    
+    <button [style.background-color]="toggles['Bitter'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Bitter')">Bitter</button>    
+    <button [style.background-color]="toggles['Strong'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Strong')">Strong</button>    
+    <button [style.background-color]="toggles['Light'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Light')">Light</button>    
+    <button [style.background-color]="toggles['Sour'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Sour')">Sour</button>    
+    <button [style.background-color]="toggles['Effervescent'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Effervescent')">Effervescent</button>    
+    <button [style.background-color]="toggles['Aromatic'] ? '#cef9f2' : 'white'" (click)="update_flavor_terms('Aromatic')">Aromatic</button>    
+    </p>
+    <li *ngFor="let searchIng of searchIngredients">
+        {{searchIng}}<span class="close" (click)="remove_ingredient(searchIng)">x</span>
+    </li>
+    <h6><label>Enter Ingredients:</label></h6>
+    <input #searchBox (keyup.enter)="add_ingredient(searchBox.value); searchBox.value='';" />
+    <button (click)="filter_recipes()">Search</button>
+  </body>
+  </div>
+

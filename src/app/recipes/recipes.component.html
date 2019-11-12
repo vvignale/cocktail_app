@@ -1,8 +1,6 @@
-<p>Recipes:</p>
-<h6>"TEST"</h6>
-<li *ngFor="let recipe of recipes">
+<h5>Recipes:</h5>
+<li *ngFor="let recipe of curr_recipes">
     <h6>{{recipe.name}}</h6>
-    <h6>{{recipe.ingredients}}</h6>
-    <h6>{{recipe.procedure}}</h6>
+    <p>{{recipe.ingredients}}<p>
+    <p>{{recipe.procedure}}</p>
 </li>
-<h6>DONE</h6>

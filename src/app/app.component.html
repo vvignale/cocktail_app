@@ -1,9 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+  <body>
   <h1>
     {{ title }}
-    <app-recipes></app-recipes>
   </h1>
+    <img src= "berry.png" alt="stufftjrksjtljtsjl">
+    <app-recipe-search [recipeComp]="recipeComp"></app-recipe-search>
+    <app-recipes #recipeComp></app-recipes>
+  </body>
 </div>
 
 <router-outlet></router-outlet>
