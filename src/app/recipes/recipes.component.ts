@@ -37,26 +37,13 @@ export class RecipesComponent implements OnInit {
       this.curr_recipes.push(recipe);
     }
     
-    console.log("Before data");
-    console.log(recipe.name);
-    console.log(recipe.ingredients);
-    console.log("After data");
-    
   }
 
-  updateRecipes(searchTerms: string[]) {
-
-    // This will be called whenever we hit enter in the search box
-    // It will prompt for us to search through all the recipes and update the current recipes
-
-    // assume that we got a list of search terms (ingredients only)
-    // filter through all_recipes data set 
-
-    // test filtering current by a random string 
+  updateRecipes(ingSearchTerms: string[], flavorSearchTerms: string[]) {
 
     this.curr_recipes = this.all_recipes.filter(function(recipe){
 
-      for (let term of searchTerms){
+      for (let term of ingSearchTerms){
 
         // assume "and" search. if ingredient doesn't match, throw it out
         if (!recipe.ingredients.toLowerCase().includes(term.toLowerCase())){
